@@ -1,17 +1,17 @@
-import React from 'react';
+import React from "react";
 
-import { CreateTodoButton } from '../CreateTodoButton';
-import { EmptyTodos } from '../EmptyTodos';
-import { Modal } from '../Modal';
-import { TodoContext } from '../TodoContext';
-import { TodoCounter } from '../TodoCounter';
-import { TodoForm } from '../TodoForm';
-import { TodoHeader } from '../TodoHeader';
-import { TodoItem } from '../TodoItem';
-import { TodoList } from '../TodoList';
-import { TodoSearch } from '../TodoSearch';
-import { TodosError } from '../TodosError';
-import { TodosLoading } from '../TodosLoading';
+import { CreateTodoButton } from "../CreateTodoButton";
+import { EmptyTodos } from "../EmptyTodos";
+import { Modal } from "../Modal";
+import { TodoContext } from "../TodoContext";
+import { TodoCounter } from "../TodoCounter";
+import { TodoForm } from "../TodoForm";
+import { TodoHeader } from "../TodoHeader";
+import { TodoItem } from "../TodoItem";
+import { TodoList } from "../TodoList";
+import { TodoSearch } from "../TodoSearch";
+import { TodosError } from "../TodosError";
+import { TodosLoading } from "../TodosLoading";
 
 function AppUI() {
   const {
@@ -38,7 +38,7 @@ function AppUI() {
       <TodoList>
         {error && <TodosError />}
         {loading && <TodosLoading />}
-        {(!loading && !searchedTodos.length) && <EmptyTodos />}
+        {!loading && !searchedTodos.length && <EmptyTodos />}
 
         {searchedTodos.map((todo) => (
           <TodoItem
@@ -57,9 +57,7 @@ function AppUI() {
         </Modal>
       )}
 
-      <CreateTodoButton
-        setOpenModal={setOpenModal}
-      />
+      <CreateTodoButton setOpenModal={setOpenModal} />
     </>
   );
 }
