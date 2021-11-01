@@ -15,6 +15,6 @@ const TodoSearch = ({ searchValue, setSearchValue }) => {
       onChange={onSearchValueChange}
     />
   );
-}
+};
 
 export { TodoSearch };

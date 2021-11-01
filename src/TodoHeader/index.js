@@ -1,9 +1,9 @@
 import React from 'react';
 
-const TodoHeader = ({children}) => (
+const TodoHeader = ({ children }) => (
   <header>
     {children}
   </header>
-)
+);
 
-export {TodoHeader}
+export { TodoHeader };

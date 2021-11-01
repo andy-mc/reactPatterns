@@ -8,7 +8,7 @@ function TodoForm() {
     addTodo,
     setOpenModal,
   } = React.useContext(TodoContext);
-  
+
   const onChange = (event) => {
     setNewTodoValue(event.target.value);
   };
@@ -34,7 +34,7 @@ function TodoForm() {
           type="button"
           className="TodoForm-button TodoForm-button--cancel"
           onClick={onCancel}
-          >
+        >
           Cancelar
         </button>
         <button
