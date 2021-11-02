@@ -6,7 +6,7 @@ const useTodos = () => {
     item: todos,
     saveItem: saveTodos,
     loading,
-    error,
+    loadingError: error,
   } = useLocalStorage('TODOS_V1', []);
 
   const [searchValue, setSearchValue] = React.useState('');

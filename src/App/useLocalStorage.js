@@ -1,7 +1,7 @@
 import React from 'react';
 
 function useLocalStorage(itemName, initialValue) {
-  const [error, setError] = React.useState(false);
+  const [loadingError, setLoadingError] = React.useState(false);
   const [loading, setLoading] = React.useState(true);
   const [item, setItem] = React.useState(initialValue);
 
@@ -21,7 +21,7 @@ function useLocalStorage(itemName, initialValue) {
         setItem(parsedItem);
         setLoading(false);
       } catch (error) {
-        setError(error);
+        setLoadingError(error);
       }
     }, 3000);
   });
@@ -32,7 +32,7 @@ function useLocalStorage(itemName, initialValue) {
       localStorage.setItem(itemName, stringifiedItem);
       setItem(newItem);
     } catch (error) {
-      setError(error);
+      setLoadingError(error);
     }
   };
 
@@ -40,7 +40,7 @@ function useLocalStorage(itemName, initialValue) {
     item,
     saveItem,
     loading,
-    error,
+    loadingError,
   };
 }
 
