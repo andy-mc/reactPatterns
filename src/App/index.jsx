@@ -52,7 +52,8 @@ function App() {
             {searchText}
           </p>
         )}
-        render={(todo) => (
+      >
+        {(todo) => (
           <TodoItem
             key={todo.text}
             text={todo.text}
@@ -61,7 +62,7 @@ function App() {
             onDelete={() => deleteTodo(todo.text)}
           />
         )}
-      />
+      </TodoList>
 
       {!!openModal && (
         <Modal>
