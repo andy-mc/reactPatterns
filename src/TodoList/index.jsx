@@ -5,15 +5,19 @@ const TodoList = ({
   error,
   loading,
   searchedTodos,
+  totalTodos,
+  searchValue,
   onError,
   onLoading,
   onEmpty,
+  onEmptySearch,
   render,
 }) => (
   <div className="TodoList-container">
     {error && onError()}
     {loading && onLoading()}
-    {!loading && !searchedTodos.length && onEmpty()}
+    {!loading && !totalTodos && onEmpty()}
+    {!loading && !!totalTodos && !searchedTodos.length && onEmptySearch(searchValue)}
 
     <section>
       <ul>{searchedTodos.map(render)}</ul>
