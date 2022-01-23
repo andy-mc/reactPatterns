@@ -6,28 +6,22 @@ const TodoList = ({
   loading,
   searchedTodos,
   totalTodos,
-  searchValue,
   onError,
   onLoading,
   onEmpty,
   onEmptySearch,
   render,
-  children,
-}) => {
-  const renderFunc = children || render;
+}) => (
+  <div className="TodoList-container">
+    {error && onError()}
+    {loading && onLoading()}
+    {!loading && !totalTodos && onEmpty()}
+    {!loading && !!totalTodos && !searchedTodos.length && onEmptySearch()}
 
-  return (
-    <div className="TodoList-container">
-      {error && onError()}
-      {loading && onLoading()}
-      {!loading && !totalTodos && onEmpty()}
-      {!loading && !!totalTodos && !searchedTodos.length && onEmptySearch(searchValue)}
-
-      <section>
-        <ul>{searchedTodos.map(renderFunc)}</ul>
-      </section>
-    </div>
-  );
-};
+    <section>
+      <ul>{searchedTodos.map(render)}</ul>
+    </section>
+  </div>
+);
 
 export { TodoList };
